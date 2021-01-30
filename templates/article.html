@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>
+        {% block title %}
+            {{ title|safe }}
+        {% endblock %}
+    </h1>
+    <div class="page-wrapper">
+        <div class="article-img">
+            {% block image %}
+                <img src="{{ image }}" alt="" loading="lazy">
+            {% endblock %}
+        </div>
+        {% block text %}
+                {{ text|safe }}
+        {% endblock %}
+        {% block url %}
+            <a class="article-url" href="{{ url }}">Ссылка на первоисточник</a>
+        {% endblock %}
+    </div>
+{% endblock %}

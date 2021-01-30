@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Последние новости недели:</h1>
+    <div class="page-wrapper">
+        <div class="row">
+            {% block data %}
+                {% for d in data %}
+                    <div class="page-card page-card-nobg ">
+                        <img src="{{ d['articleImg'] }}" alt="" loading="lazy">
+                        <h2 style="text-align: center">{{ d['articleTitle'] }}</h2>
+                        <div class="page-card_buttons">
+                            <a href="/info/articles/{{ d['articleTitle'] }}">Подробнее</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
+

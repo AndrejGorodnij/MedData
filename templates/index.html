@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="card animate__animated animate__fadeInLeft animate__faster animate__delay-0.5s">
+            <div class="img card-orange"><img src="{{ url_for('static', filename='Client.png') }}" alt="" loading="lazy"></div>
+            <div class="title">
+                <h2>Информация для пациентов</h2>
+            </div>
+            <div class="read-more">
+                <p>Всегда актуальная и полезная информация для любого жителя Украины. Будьте в курсе всех событий в
+                    сфере здравоохранения.</p>
+            </div>
+            <button class="button"><a href="{{ url_for('newsPage') }}">Подробнее</a></button>
+        </div>
+        <div class="card animate__animated animate__fadeInLeft animate__faster animate__delay-1s">
+            <div class="img"><img src="{{ url_for('static', filename='Icon.png') }}" alt="" loading="lazy"></div>
+            <div class="title">
+                <h2>Поиск информации о заведении</h2>
+            </div>
+            <div class="read-more">
+                <p>Надите контакты и адреса любого мед.учреждения Украины - поиск больницы больше не составит для вас
+                    проблем.</p>
+            </div>
+            <button class="button"><a href="{{ url_for('searchPage') }}">Подробнее</a></button>
+        </div>
+        <div class="card animate__animated animate__fadeInLeft animate__faster animate__delay-2s">
+            <div class="img card-blue"><img src="{{ url_for('static', filename='Press-center.png') }}" alt="" loading="lazy"></div>
+            <div class="title">
+                <h2>Пресс-центр</h2>
+            </div>
+            <div class="read-more">
+                <p>Обучение, анонсы и другие материалы для медиков в удобном формате для чтения, просмотра или
+                    прослушивания.</p>
+            </div>
+            <button class="button">Подробнее</button>
+        </div>
+    </div>
+    <span>MedDataSearch 2021 Все права защищены</span>
+{% endblock %}

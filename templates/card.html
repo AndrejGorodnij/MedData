@@ -1,0 +1,16 @@
+<div class="row">
+    {% block data %}
+        {% for d in data %}
+            <div class="page-card">
+                <h3><b>Юридична назва:</b> <br> {{ d[1] }}</h3>
+                <p><b>Юридична адреса:</b> <br>{{ d[5] }}</p>
+                <p><b>Email:</b> <br> {{ d[2] }}</p>
+                <p><b>ПІБ керівника:</b> <br> {{ d[4] }}</p>
+                <div class="page-card_buttons">
+                    <a href="tel:{{ d[3] }}">Позвонить</a>
+                    <a href="/search/cards/{{ d[0] }}">Подробнее</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% endblock %}
+</div>
