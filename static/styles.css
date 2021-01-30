@@ -679,8 +679,9 @@ h1 {
     color: #007AE9;
 }
 
-.article-img img {
-    max-width: 1200px;
+.article-img, .article-img img {
+    max-width: 100%;
+    height: auto;
     margin: 0 auto;
     display: block;
 }
