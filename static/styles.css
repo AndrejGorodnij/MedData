@@ -72,6 +72,7 @@ a.logo {
     justify-content: space-around;
     flex-direction: column;
     margin: 25px;
+    border: 1px solid #eff0f5;
 }
 
 
