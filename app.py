@@ -1,10 +1,13 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, send_from_directory
 import sqlite3
 from flask import g
 import json
 import re
+from flask_sitemap import Sitemap
 
-app = Flask(__name__)
+
+app = Flask(__name__,static_folder='static')
+ext = Sitemap(app=app)
 
 # DATABASE INFO
 DATABASE = 'legalEntityDB.db'
@@ -30,6 +33,10 @@ def close_connection(exception):
 def home():
     return render_template('index.html')
 
+@ext.register_generator
+def home():
+    # Not needed if you set SITEMAP_INCLUDE_RULES_WITHOUT_PARAMS=True
+    yield 'home', {}
 
 # MAIN page routes END
 
@@ -118,6 +125,14 @@ def getArticle(title):
             orig_url = d['articleUrl']
     return render_template('article.html', title=title, image=image, text=text, url=orig_url)
     f.close()
+
+
+
+# SEO SECTION
+@app.route('/robots.txt')
+@app.route('/sitemap.xml')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
 
 
 if __name__ == '__main__':
